@@ -1176,8 +1176,8 @@
 
 		// Check parent element to see if image should be applied as a background image
 		var wrapper = img.parentNode;
-		if ( wrapper.className.indexOf('js-background-image') > -1 ) {
-			wrapper.style.backgroundImage = 'url("' + bestCandidate.url + '")';
+		if ( !!wrapper && wrapper.className.indexOf("js-background-image") > -1 ) {
+			wrapper.style.backgroundImage = "url('" + bestCandidate.url + "')";
 		}
 
 		// although this is a specific Safari issue, we don't want to take too much different code paths
