@@ -1,4 +1,4 @@
-/*! Picturefill - v3.0.1 - 2015-12-14
+/*! Picturefill - v3.0.1 - 2015-12-15
  * http://scottjehl.github.io/picturefill
  * Copyright (c) 2015 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT
  */
@@ -1247,10 +1247,19 @@
 		var origWidth;
 		img.src = bestCandidate.url;
 
-		// Check parent element to see if image should be applied as a background image
+		// Get parent element to see if image should be applied as a background image
 		var wrapper = img.parentNode;
-		if ( !!wrapper && wrapper.className.indexOf("js-background-image") > -1 ) {
-			wrapper.style.backgroundImage = "url('" + bestCandidate.url + "')";
+
+		if ( !!wrapper ) {
+			// Go up another level for <picture> elements
+			if ( wrapper.tagName.toLowerCase() === "picture" ) {
+				wrapper = wrapper.parentNode;
+			}
+
+			// Check for "js-background-image" class before applying background image
+			if ( wrapper.className.indexOf("js-background-image") > -1 ) {
+				wrapper.style.backgroundImage = "url('" + bestCandidate.url + "')";
+			}
 		}
 
 		// although this is a specific Safari issue, we don't want to take too much different code paths
