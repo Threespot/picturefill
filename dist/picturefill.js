@@ -1,4 +1,4 @@
-/*! picturefill - v3.0.2 - 2016-06-02
+/*! picturefill - v3.0.2 - 2016-02-12
  * https://scottjehl.github.io/picturefill/
  * Copyright (c) 2016 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT
  */
@@ -1279,21 +1279,6 @@
 	pf.setSrc = function( img, bestCandidate ) {
 		var origWidth;
 		img.src = bestCandidate.url;
-
-		// Get parent element to see if image should be applied as a background image
-		var wrapper = img.parentNode;
-
-		if ( !!wrapper ) {
-			// Go up another level for <picture> elements
-			if ( wrapper.tagName.toLowerCase() === "picture" ) {
-				wrapper = wrapper.parentNode;
-			}
-
-			// Check for "js-background-image" class before applying background image
-			if ( wrapper.className.indexOf("js-background-image") > -1 ) {
-				wrapper.style.backgroundImage = "url('" + bestCandidate.url + "')";
-			}
-		}
 
 		// although this is a specific Safari issue, we don't want to take too much different code paths
 		if ( bestCandidate.set.type === "image/svg+xml" ) {
