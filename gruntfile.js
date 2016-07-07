@@ -9,7 +9,7 @@
     grunt.initConfig({
       // Metadata.
       pkg: pkg = grunt.file.readJSON("package.json"),
-      banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+      banner: "/*! <%= pkg.name %> - v<%= pkg.version %> (Threespot fork) - " +
         "<%= grunt.template.today('yyyy-mm-dd') %>\n" +
         "<%= pkg.homepage ? ' * ' + pkg.homepage + '\\n' : '' %>" +
         " * Copyright (c) <%= grunt.template.today('yyyy') %> https://github.com/scottjehl/picturefill/blob/master/Authors.txt;" +
@@ -123,7 +123,7 @@
     grunt.loadNpmTasks("grunt-release");
 
   // Default task.
-    grunt.registerTask("default", [ "jscs", "test", "clean", "concat", "copy", "uglify" ]);
+    grunt.registerTask("default", [ "clean", "concat", "copy", "uglify" ]);
     grunt.registerTask("test", [ "jscs", "jshint", "qunit" ]);
     grunt.registerTask("publish", [ "gh-pages" ]);
   };
