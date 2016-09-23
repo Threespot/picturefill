@@ -1,3 +1,5 @@
+⚠️ DEPRECATED—Use original Picturefill repo ⚠️
+---
 # Picturefill
 A [responsive image](http://www.whatwg.org/specs/web-apps/current-work/multipage/embedded-content.html#embedded-content) polyfill.
 * Authors: See [Authors.txt](https://raw.githubusercontent.com/scottjehl/picturefill/master/Authors.txt)
